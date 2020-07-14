@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Montserrat Medium';
+  src: url('../fonts/Montserrat-Medium.woff');
+  src: url('../fonts/Montserrat-Medium.woff') format('embedded-opentype'),
+    url('../fonts/Montserrat-Medium.woff') format('woff'),
+    url('../fonts/Montserrat-Medium.woff') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../fonts/sourcesanspro.woff');
+  src: url('../fonts/sourcesanspro.woff') format('embedded-opentype'),
+    url('../fonts/sourcesanspro.wofff') format('woff'),
+    url('../fonts/sourcesanspro.woff') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: local('Source Code Pro Medium'), local('SourceCodePro-Medium'),
+    url('../fonts/Sourcecodepromedium.woff2') format('woff2'),
+    url('../fonts/Sourcecodepromedium.woff') format('woff'),
+    url('../fonts/Sourcecodepromedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}

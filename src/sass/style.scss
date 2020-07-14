@@ -1,0 +1,13 @@
+* {
+  margin: 0 auto;
+}
+
+.container {
+  padding: 84px 200px;
+}
+@import 'base/variables';
+@import 'libs/_font';
+@import 'blocks/header';
+@import 'blocks/promo';
+@import 'base/button';
+@import 'blocks/merit';

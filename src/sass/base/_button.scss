@@ -1,0 +1,17 @@
+.button {
+    &__slider {
+        width: 200px;
+        height: 39px;
+        margin-top: 49px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 11px;
+        border: 5px solid #a50e18;
+        background-color: rgba(130, 23, 30, 0);
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        color: #e5e3e3;
+        font-family: 'Montserrat Medium';
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 2.52px;
+    }
+}

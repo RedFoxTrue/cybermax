@@ -15,7 +15,7 @@
   }
   &__list {
     margin-top: 90px;
-    padding-left: 50px;
+    padding: 0 25px;
     li {
       color: #c4c4c4;
       font-family: 'Source Code Pro';
@@ -38,6 +38,7 @@
 }
 
 .title {
+  margin: 0 auto;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   color: #c4c4c4;
   font-family: 'Montserrat Medium';
@@ -50,4 +51,10 @@
   height: 3px;
   background-color: $main-color;
   margin-top: 23px;
+  &__news {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }

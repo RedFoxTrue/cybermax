@@ -1,0 +1,79 @@
+.footer {
+  padding: 46px 200px;
+  display: flex;
+  background-color: #121921;
+  justify-content: space-between;
+  &__title {
+    margin-bottom: 11px;
+    color: #c4c4c4;
+    font-family: 'Source Sans Pro';
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 18.43px;
+  }
+  &__data {
+    display: flex;
+    a {
+      display: flex;
+      margin-bottom: 16px;
+      color: rgba(196, 196, 196, 0.8);
+      font-family: 'Source Sans Pro';
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.56px;
+      line-height: 18.43px;
+      text-decoration: underline;
+    }
+    img {
+      margin-right: 7px;
+    }
+  }
+  &__place {
+    margin-left: 107px;
+  }
+  &__kaktus {
+    display: flex;
+    align-items: flex-end;
+    color: #c4c4c4;
+    font-family: 'Source Sans Pro';
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 2.52px;
+    color: rgba(196, 196, 196, 0.8);
+
+    &__link {
+      display: flex;
+      align-items: center;
+      &::after {
+        content: '';
+        height: 25px;
+        width: 2px;
+        background: rgba(196, 196, 196, 0.8);
+        margin: 0 8px;
+      }
+      a {
+        margin-bottom: 0;
+        text-decoration: none;
+        color: rgba(196, 196, 196, 0.8);
+      }
+    }
+    &__cyber {
+      line-height: 5px;
+    }
+    &__wrapper {
+      display: flex;
+      vertical-align: middle;
+    }
+    // color: #c4c4c4;
+    // font-family: 'Source Sans Pro';
+    // font-size: 14px;
+    // font-weight: 600;
+    // letter-spacing: 2.52px;
+    // line-height: 18.43px;
+    // color: rgba(196, 196, 196, 0.8);
+  }
+}

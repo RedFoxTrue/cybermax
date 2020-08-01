@@ -7,64 +7,87 @@
   }
   &__pc {
     background-color: $main-color;
-
+    border-radius: 4%;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-
     color: #c4c4c4;
-
-    font-family: 'Montserrat Medium';
-
-    font-size: 30px;
-
-    font-weight: 500;
-
-    letter-spacing: 2.4px;
-
-    line-height: 75px;
-
-    text-transform: uppercase;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    padding-bottom: 19px;
   }
   &__time {
     color: #c4c4c4;
     margin-top: 15px;
-    font-family: 'Montserrat Light';
-
+    font-family: 'Montserrat';
     font-size: 16px;
-
     font-weight: 300;
-
     letter-spacing: 1.28px;
-
     line-height: 21.06px;
     text-align: center;
   }
-  &__morning {
+  &__rate {
     list-style-type: none;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    color: #c4c4c4;
-    font-family: 'Montserrat Italic';
+    font-family: 'Montserrat';
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 4.32px;
     line-height: 21.06px;
     text-align: center;
+    font-style: italic;
     padding-left: 0;
     li {
       margin-top: 5px;
     }
   }
   &__title {
+    font-style: italic;
     width: 342px;
     height: 70px;
     border-radius: 11px;
     border: 5px solid #82171e;
     background-color: rgba(130, 23, 30, 0);
     text-align: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+    margin: auto;
+    font-family: 'Montserrat Medium';
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 2.4px;
+    line-height: 75px;
+    text-transform: uppercase;
+    color: #c4c4c4;
+    &_ps {
+      height: 99px;
+    }
+  }
+  &__price {
+    padding-top: 10px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: #c4c4c4;
+    font-family: 'Montserrat';
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 2.4px;
+    line-height: 39.5px;
+    text-transform: uppercase;
+    span {
+      font-family: 'Montserrat';
+      font-style: italic;
+      font-size: 28px;
+    }
   }
   &__ps {
     width: 33.333%;
+    padding-top: 150px;
   }
   &__pro {
     width: 33.333%;
+  }
+  &__vertical {
+    height: 50px;
+    width: 5px;
+    margin: auto;
+    background-color: #82171e;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 }

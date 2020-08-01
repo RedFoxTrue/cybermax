@@ -1,4 +1,79 @@
-'use strict';
+!(function (e) {
+  'function' != typeof e.matches &&
+    (e.matches =
+      e.msMatchesSelector ||
+      e.mozMatchesSelector ||
+      e.webkitMatchesSelector ||
+      function (e) {
+        for (var t = this, o = (t.document || t.ownerDocument).querySelectorAll(e), n = 0; o[n] && o[n] !== t; ) ++n;
+        return Boolean(o[n]);
+      }),
+    'function' != typeof e.closest &&
+      (e.closest = function (e) {
+        for (var t = this; t && 1 === t.nodeType; ) {
+          if (t.matches(e)) return t;
+          t = t.parentNode;
+        }
+        return null;
+      });
+})(window.Element.prototype);
+
+document.addEventListener('DOMContentLoaded', function () {
+  /* Записываем в переменные массив элементов-кнопок и подложку.
+      Подложке зададим id, чтобы не влиять на другие элементы с классом overlay*/
+  var modalButtons = document.querySelectorAll('.js-open-modal'),
+    overlay = document.querySelector('.js-overlay-modal'),
+    closeButtons = document.querySelectorAll('.js-modal-close');
+
+  /* Перебираем массив кнопок */
+  modalButtons.forEach(function (item) {
+    /* Назначаем каждой кнопке обработчик клика */
+    item.addEventListener('click', function (e) {
+      /* Предотвращаем стандартное действие элемента. Так как кнопку разные
+            люди могут сделать по-разному. Кто-то сделает ссылку, кто-то кнопку.
+            Нужно подстраховаться. */
+      e.preventDefault();
+
+      /* При каждом клике на кнопку мы будем забирать содержимое атрибута data-modal
+            и будем искать модальное окно с таким же атрибутом. */
+      var modalId = this.getAttribute('data-modal'),
+        modalElem = document.querySelector('.modal[data-modal="' + modalId + '"]');
+
+      /* После того как нашли нужное модальное окно, добавим классы
+            подложке и окну чтобы показать их. */
+      modalElem.classList.add('active');
+      overlay.classList.add('active');
+    }); // end click
+  }); // end foreach
+
+  closeButtons.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      var parentModal = this.closest('.modal');
+
+      parentModal.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  }); // end foreach
+
+  document.body.addEventListener(
+    'keyup',
+    function (e) {
+      var key = e.keyCode;
+
+      if (key == 27) {
+        document.querySelector('.modal.active').classList.remove('active');
+        document.querySelector('.overlay').classList.remove('active');
+      }
+    },
+    false,
+  );
+
+  overlay.addEventListener('click', function () {
+    document.querySelector('.modal.active').classList.remove('active');
+    this.classList.remove('active');
+  });
+}); // end ready
+// -------------------------------------------------- test slider
 var multiItemSlider = (function () {
   function _isElementVisible(element) {
     var rect = element.getBoundingClientRect(),
@@ -7,13 +82,7 @@ var multiItemSlider = (function () {
       elemFromPoint = function (x, y) {
         return document.elementFromPoint(x, y);
       };
-    if (
-      rect.right < 0 ||
-      rect.bottom < 0 ||
-      rect.left > vWidth ||
-      rect.top > vHeight
-    )
-      return false;
+    if (rect.right < 0 || rect.bottom < 0 || rect.left > vWidth || rect.top > vHeight) return false;
     return (
       element.contains(elemFromPoint(rect.left, rect.top)) ||
       element.contains(elemFromPoint(rect.right, rect.top)) ||
@@ -28,9 +97,7 @@ var multiItemSlider = (function () {
       _sliderItems = _mainElement.querySelectorAll('.slider__item'), // элементы (.slider-item)
       _sliderControls = _mainElement.querySelectorAll('.slider__control'), // элементы управления
       _sliderControlLeft = _mainElement.querySelector('.slider__control_left'), // кнопка "LEFT"
-      _sliderControlRight = _mainElement.querySelector(
-        '.slider__control_right',
-      ), // кнопка "RIGHT"
+      _sliderControlRight = _mainElement.querySelector('.slider__control_right'), // кнопка "RIGHT"
       _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
       _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента
       _positionLeftItem = 0, // позиция левого активного элемента
@@ -44,7 +111,7 @@ var multiItemSlider = (function () {
         { active: false, minWidth: 980, count: 2 },
       ],
       _config = {
-        isCycling: false, // автоматическая смена слайдов
+        isCycling: true, // автоматическая смена слайдов
         direction: 'right', // направление смены слайдов
         interval: 5000, // интервал между автоматической сменой слайдов
         pause: true, // устанавливать ли паузу при поднесении курсора к слайдеру
@@ -115,15 +182,11 @@ var multiItemSlider = (function () {
       }
       if (direction === 'right') {
         _positionLeftItem++;
-        if (
-          _positionLeftItem + _wrapperWidth / _itemWidth - 1 >
-          position.getMax()
-        ) {
+        if (_positionLeftItem + _wrapperWidth / _itemWidth - 1 > position.getMax()) {
           nextItem = position.getItemMin();
           _items[nextItem].position = position.getMax() + 1;
           _items[nextItem].transform += _items.length * 100;
-          _items[nextItem].item.style.transform =
-            'translateX(' + _items[nextItem].transform + '%)';
+          _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';
         }
         _transform -= _step;
       }
@@ -133,8 +196,7 @@ var multiItemSlider = (function () {
           nextItem = position.getItemMax();
           _items[nextItem].position = position.getMin() - 1;
           _items[nextItem].transform -= _items.length * 100;
-          _items[nextItem].item.style.transform =
-            'translateX(' + _items[nextItem].transform + '%)';
+          _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';
         }
         _transform += _step;
       }
@@ -154,9 +216,7 @@ var multiItemSlider = (function () {
     var _controlClick = function (e) {
       if (e.target.classList.contains('slider__control')) {
         e.preventDefault();
-        var direction = e.target.classList.contains('slider__control_right')
-          ? 'right'
-          : 'left';
+        var direction = e.target.classList.contains('slider__control_right') ? 'right' : 'left';
         _transformItem(direction);
         clearInterval(_interval);
         _cycle(_config.direction);
@@ -180,9 +240,7 @@ var multiItemSlider = (function () {
       _sliderItems = _mainElement.querySelectorAll('.slider__item');
       _sliderControls = _mainElement.querySelectorAll('.slider__control');
       _sliderControlLeft = _mainElement.querySelector('.slider__control_left');
-      _sliderControlRight = _mainElement.querySelector(
-        '.slider__control_right',
-      );
+      _sliderControlRight = _mainElement.querySelector('.slider__control_right');
       _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width);
       _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width);
       _positionLeftItem = 0;
@@ -205,11 +263,7 @@ var multiItemSlider = (function () {
           _cycle(_config.direction);
         });
       }
-      document.addEventListener(
-        'visibilitychange',
-        _handleVisibilityChange,
-        false,
-      );
+      document.addEventListener('visibilitychange', _handleVisibilityChange, false);
       window.addEventListener('resize', function () {
         var _index = 0,
           width = parseFloat(document.body.clientWidth);
@@ -257,3 +311,103 @@ var multiItemSlider = (function () {
 var slider = multiItemSlider('.slider', {
   isCycling: true,
 });
+
+//------------- mailer
+
+// $(document).ready(function () {
+//   $('.form-element').submit(function () {
+//     var formID = $(this).attr('id');
+//     var formNm = $('#' + formID);
+//     var message = $(formNm).find('.form-message');
+//     var formTitle = $(formNm).find('.form-title');
+//     $.ajax({
+//       type: 'POST',
+//       url: '../php/send-message-to-telegram.php',
+//       data: formNm.serialize(),
+//       success: function (data) {
+//         // Вывод сообщения об успешной отправке
+//         message.html(data);
+//         formTitle.css('display', 'none');
+//         setTimeout(function () {
+//           formTitle.css('display', 'block');
+//           message.html('');
+//           $('input').not(':input[type=submit], :input[type=hidden]').val('');
+//         }, 3000);
+//       },
+//       error: function (jqXHR, text, error) {
+//         // Вывод сообщения об ошибке отправки
+//         message.html(error);
+//         formTitle.css('display', 'none');
+//         setTimeout(function () {
+//           formTitle.css('display', 'block');
+//           message.html('');
+//           $('input').not(':input[type=submit], :input[type=hidden]').val('');
+//         }, 3000);
+//       },
+//     });
+//     return false;
+//   });
+// });
+// ---------------- МОЙ КОД
+$(document).ready(function () {
+  $('.modal__form').submit(function () {
+    var formID = $(this).attr('id');
+    var formNm = $('#' + formID);
+    var message = $(formNm).find('.form-message');
+    var formTitle = $(formNm).find('.form-title');
+    $.ajax({
+      type: 'POST',
+      url: '../php/send-message-to-telegram.php',
+      data: formNm.serialize(),
+      success: function (data) {
+        // Вывод сообщения об успешной отправке
+        message.html(data);
+        formTitle.css('display', 'none');
+        setTimeout(function () {
+          formTitle.css('display', 'block');
+          message.html('');
+          $('input').not(':input[type=submit], :input[type=hidden]').val('');
+        }, 3000);
+      },
+      error: function (jqXHR, text, error) {
+        // Вывод сообщения об ошибке отправки
+        message.html(error);
+        formTitle.css('display', 'none');
+        setTimeout(function () {
+          formTitle.css('display', 'block');
+          message.html('');
+          $('input').not(':input[type=submit], :input[type=hidden]').val('');
+        }, 3000);
+      },
+    });
+    return false;
+  });
+});
+var linkNav = document.querySelectorAll('[href^="#"]'), //выбираем все ссылки к якорю на странице
+  V = 0.1; // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
+for (var i = 0; i < linkNav.length; i++) {
+  linkNav[i].addEventListener(
+    'click',
+    function (e) {
+      //по клику на ссылку
+      e.preventDefault(); //отменяем стандартное поведение
+      var w = window.pageYOffset, // производим прокрутка прокрутка
+        hash = this.href.replace(/[^#]*(.*)/, '$1'); // к id элемента, к которому нужно перейти
+      (t = document.querySelector(hash).getBoundingClientRect().top), // отступ от окна браузера до id
+        (start = null);
+      requestAnimationFrame(step); // подробнее про функцию анимации [developer.mozilla.org]
+      function step(time) {
+        if (start === null) start = time;
+        var progress = time - start,
+          r = t < 0 ? Math.max(w - progress / V, w + t) : Math.min(w + progress / V, w + t);
+        window.scrollTo(0, r);
+        if (r != w + t) {
+          requestAnimationFrame(step);
+        } else {
+          location.hash = hash; // URL с хэшем
+        }
+      }
+    },
+    false,
+  );
+}

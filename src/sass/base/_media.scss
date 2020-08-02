@@ -77,7 +77,18 @@
   }
 }
 @media (max-width: 767px) {
+  header {
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    top: 0;
+  }
   .menu {
+    &__item {
+      &:nth-child(1) {
+        margin-top: 40px;
+      }
+    }
     &__logo {
       width: 100%;
     }
@@ -109,15 +120,110 @@
     display: block;
     position: absolute;
     right: 30px;
-    top: 32px;
+    top: 30px;
     transform: translateY(-50%);
     width: 35px;
+    height: 16px;
     span {
       display: block;
       height: 2px;
       width: 100%;
       background-color: #ffffff;
       margin-bottom: 6px;
+      transition: 0.5s all;
+    }
+    &_active {
+      span {
+        margin-bottom: -2px;
+        &:nth-child(1) {
+          transform: translateY(3px) rotate(-45deg);
+        }
+        &:nth-child(2) {
+          display: none;
+        }
+        &:nth-child(3) {
+          transform: translateY(3px) rotate(45deg);
+        }
+      }
+    }
+  }
+  .slider__title {
+    margin-top: 40px;
+  }
+  .merit {
+    &__item {
+      min-height: 360px;
+    }
+    &__list {
+      margin-top: 45px;
+      li {
+        font-size: 14px;
+        margin-top: 25px;
+      }
+    }
+  }
+  .news {
+    &__item {
+      display: block;
+    }
+    &__data {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+  .reserve {
+    &__pc {
+      width: 33.33%;
+    }
+    &__ps {
+      width: 33.33%;
+      margin: 0 19px;
+    }
+    &__title {
+      width: 96%;
+      height: 40px;
+      font-size: 17px;
+      line-height: 44px;
+    }
+    &__title_ps {
+      width: 96%;
+      height: 95px;
+      font-size: 23px;
+      line-height: 44px;
+    }
+    &__price {
+      font-size: 17px;
+      span {
+        font-size: 20px;
+      }
+    }
+    .line {
+      width: 125px;
+    }
+    .button {
+      width: 100%;
+      font-size: 10px;
+    }
+    &__rate {
+      font-size: 10px;
+    }
+    &__time {
+      font-size: 14px;
+    }
+  }
+  .footer {
+    flex-wrap: wrap;
+
+    padding: 20px 30px;
+    &__kaktus {
+      font-size: 12px;
+      order: 999;
+      margin-left: auto;
+    }
+    &__data {
+      a {
+        font-size: 13px;
+      }
     }
   }
 }

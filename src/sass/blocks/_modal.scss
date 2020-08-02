@@ -89,8 +89,6 @@
   visibility: visible;
 }
 
-/* Стили для кнопки закрытия */
-
 .modal__cross {
   width: 15px;
   height: 15px;
@@ -103,4 +101,8 @@
 a {
   text-decoration: none;
 }
-/* Стили для кнопок. Мы ведь порядочные разработчики, негоже простые ссылки оставлять */
+
+.form-message {
+  font-size: 18px;
+  font-family: 'Montserrat';
+}

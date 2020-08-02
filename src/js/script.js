@@ -17,7 +17,24 @@
         return null;
       });
 })(window.Element.prototype);
+// скрипт гамбургера
+window.addEventListener('DOMContentLoaded', () => {
+  const menu = document.querySelector('.menu__list'),
+    menuItem = document.querySelectorAll('.menu_item'),
+    hamburger = document.querySelector('.hamburger');
 
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('hamburger_active');
+    menu.classList.toggle('menu__list_active');
+  });
+
+  menuItem.forEach(item => {
+    item.addEventListener('click', () => {
+      hamburger.classList.toggle('hamburger_active');
+      menu.classList.toggle('menu__list_active');
+    });
+  });
+});
 document.addEventListener('DOMContentLoaded', function () {
   /* Записываем в переменные массив элементов-кнопок и подложку.
       Подложке зададим id, чтобы не влиять на другие элементы с классом overlay*/

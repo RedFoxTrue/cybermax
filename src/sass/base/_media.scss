@@ -1,3 +1,17 @@
+@media (max-width: 1258px) {
+  .menu {
+    padding: 0 70px;
+  }
+  .merit {
+    &__wrapper {
+      max-width: 100%;
+    }
+    &__item {
+      min-height: 480px;
+    }
+  }
+}
+
 @media (max-width: 995px) {
   .container {
     padding: 20px 30px;
@@ -47,11 +61,11 @@
     &__title_ps {
       width: 96%;
       height: 95px;
-      font-size: 23px;
+      font-size: 22px;
       line-height: 44px;
     }
     &__price {
-      font-size: 25px;
+      font-size: 21px;
     }
     .line {
       width: 125px;
@@ -192,9 +206,9 @@
       line-height: 44px;
     }
     &__price {
-      font-size: 17px;
+      font-size: 16px;
       span {
-        font-size: 20px;
+        font-size: 19px;
       }
     }
     .line {
@@ -224,6 +238,98 @@
       a {
         font-size: 13px;
       }
+    }
+  }
+}
+@media (max-width: 575px) {
+  .slider {
+    &__data {
+      padding: 41px 24px 20px 30px;
+    }
+    &__control {
+      display: none;
+    }
+  }
+  .merit {
+    &__wrapper {
+      display: block;
+    }
+    &__item {
+      display: flex;
+      min-height: 100px;
+      align-items: center;
+      margin-top: 30px;
+    }
+    &__round {
+      width: 57px;
+      height: 62px;
+    }
+    &__list {
+      margin: 0;
+      li {
+        margin-top: 10px;
+        &:first-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .reserve {
+    &__wrapper {
+      flex-wrap: wrap;
+    }
+    &__pc {
+      width: 100%;
+    }
+    &__ps {
+      width: 100%;
+      margin: 35px 19px 35px 19px;
+      padding: 0;
+    }
+    &__time {
+      font-size: 17px;
+    }
+    &__rate {
+      li {
+        font-size: 14px;
+      }
+    }
+    &__title {
+      font-size: 20px;
+    }
+    &__price {
+      font-size: 22px;
+    }
+    .button {
+      font-size: 17px;
+    }
+  }
+  .container {
+    padding: 30px 30px;
+  }
+  .footer {
+    display: block;
+    flex-wrap: wrap;
+    padding: 20px 30px;
+    &__kaktus {
+      font-size: 12px;
+      order: 999;
+      margin-left: auto;
+    }
+    &__data {
+      display: block;
+      a {
+        font-size: 13px;
+      }
+    }
+    &__place {
+      margin: 0;
+      margin-top: 40px;
+    }
+    &__kaktus {
+      margin: 0 auto;
+      justify-content: center;
+      margin-top: 30px;
     }
   }
 }

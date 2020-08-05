@@ -4,7 +4,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: auto;
     margin-top: 100px;
+    max-width: 80%;
   }
   &__item {
     min-width: 33.333%;

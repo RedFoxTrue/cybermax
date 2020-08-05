@@ -428,3 +428,10 @@ for (var i = 0; i < linkNav.length; i++) {
     false,
   );
 }
+$('.parent').click(function () {
+  $(this).children('.child').slideToggle(300);
+});
+
+// модальные: https://medium.com/@dan.postnov/%D0%BC%D0%BE%D0%B4%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%BE%D0%BA%D0%BD%D0%B0-%D0%BD%D0%B0-javascript-30-%D1%81%D1%82%D1%80%D0%BE%D0%BA-%D0%BA%D0%BE%D0%B4%D0%B0-dbbb599649f3
+// слайдер https://itchief.ru/examples/lab.php?topic=javascript&file=chiefslider-with-refresh
+// мейлер https://smartlanding.biz/otpravka-dannyx-formy-v-telegram.html

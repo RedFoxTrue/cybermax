@@ -1,13 +1,19 @@
-.menu {
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #121921;
   height: 60px;
-  padding: 0 200px;
+}
+.menu {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  width: 1300px;
   img {
     height: 150px;
     width: 150px;
+    display: flex;
   }
 
   :last-child {
@@ -16,6 +22,7 @@
 
   &__logo {
     width: 40%;
+    display: flex;
   }
 
   &__list {

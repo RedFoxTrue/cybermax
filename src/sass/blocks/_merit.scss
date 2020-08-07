@@ -1,12 +1,11 @@
 .merit {
-  background: url('../img/bg_2.jpg');
+  background: url(../img/bg_2.jpg) center center/cover no-repeat;
   &__wrapper {
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: auto;
     margin-top: 100px;
-    max-width: 80%;
   }
   &__item {
     min-width: 33.333%;
@@ -17,7 +16,7 @@
   }
   &__list {
     margin-top: 90px;
-    padding: 0 25px;
+    padding: 0 45px;
     li {
       color: #c4c4c4;
       font-family: 'Source Code Pro';

@@ -1,8 +1,13 @@
 .footer {
   padding: 46px 200px;
-  display: flex;
   background-color: #121921;
-  justify-content: space-between;
+
+  &__wrapper {
+    justify-content: space-between;
+    display: flex;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
   &__title {
     margin-bottom: 11px;
     color: #c4c4c4;

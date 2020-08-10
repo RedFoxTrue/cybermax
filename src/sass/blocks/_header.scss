@@ -24,10 +24,11 @@ header {
     width: 40%;
     display: flex;
     align-items: center;
+    justify-content: start;
   }
 
   &__list {
-    width: 60%;
+    max-width: 60%;
     display: flex;
     justify-content: end;
     list-style-type: none;
@@ -52,6 +53,7 @@ header {
   }
 
   &__item {
+    display: flex;
     margin: 0;
     margin-right: 25px;
   }

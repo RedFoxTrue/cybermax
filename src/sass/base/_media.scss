@@ -1,6 +1,18 @@
 @media (max-width: 1258px) {
+  .container {
+    padding: 15px 75px;
+  }
   .menu {
     padding: 0 70px;
+    img {
+      height: 100%;
+      width: 120px;
+    }
+  }
+  .button {
+    &__slider {
+      margin-top: 30px;
+    }
   }
   .merit {
     &__wrapper {
@@ -8,6 +20,20 @@
     }
     &__item {
       min-height: 480px;
+    }
+  }
+  .reserve {
+    &__title_ps {
+      width: 96%;
+      // height: ;
+      // font-size: ;
+      // line-height: ;
+    }
+    &__price {
+      font-size: 22px;
+      span {
+        font-size: 20xpx;
+      }
     }
   }
 }
@@ -24,6 +50,12 @@
     &__list {
       width: 100%;
     }
+  }
+  .carousel {
+    &__item {
+      padding: 30px 70px;
+    }
+    min-height: 430px;
   }
   .merit {
     &__wrapper {
@@ -97,6 +129,7 @@
     width: 100vw;
     top: 0;
   }
+
   .menu {
     &__item {
       &:nth-child(1) {
@@ -161,8 +194,11 @@
       }
     }
   }
-  .slider__title {
-    margin-top: 40px;
+  .carousel {
+    min-height: 450px;
+    &__title {
+      margin-top: 40px;
+    }
   }
   .merit {
     &__item {
@@ -233,26 +269,58 @@
       font-size: 12px;
       order: 999;
       margin-left: auto;
+      display: flex;
+      justify-content: end;
     }
     &__data {
       a {
         font-size: 13px;
       }
     }
+    &__wrapper {
+      display: block;
+    }
   }
 }
 @media (max-width: 575px) {
-  .slider {
-    &__data {
-      padding: 41px 24px 20px 30px;
+  .menu {
+    img {
+      height: 80%;
+      width: 120px;
+      display: flex;
     }
-    &__control {
-      display: none;
+  }
+  .carousel {
+    min-height: 150px;
+    max-height: 400px;
+    &__data {
+      padding: 70px 0 20px 0;
+    }
+    &__title {
+      margin-top: 0;
+    }
+    &__item {
+      padding: 0;
+      max-height: 395px;
+    }
+    &__title {
+      font-size: 19px;
+      line-height: 23px;
+    }
+    &__time {
+      font-size: 11px;
+      margin-top: 4px;
+    }
+    &__text {
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 7px;
     }
   }
   .merit {
     &__wrapper {
       display: block;
+      padding-left: 20px;
     }
     &__item {
       display: flex;
@@ -305,9 +373,16 @@
     }
   }
   .container {
-    padding: 30px 30px;
+    padding: 15px 20px;
+  }
+  .elfsight-app-45515f57-6f90-4f87-adb7-cae9651101a3 {
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .footer {
+    &__wrapper {
+      display: block;
+    }
     display: block;
     flex-wrap: wrap;
     padding: 20px 30px;

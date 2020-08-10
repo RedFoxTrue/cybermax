@@ -1,5 +1,10 @@
+@import 'libs/_slick';
+@import 'libs/_font';
 body {
   margin: 0 auto;
+}
+html {
+  scroll-behavior: smooth; /* свойство scroll-behavior не наследуется, применяется к прокручиваемым блокам */
 }
 
 .container {
@@ -8,7 +13,6 @@ body {
   margin: 0 auto;
 }
 @import 'base/variables';
-@import 'libs/_font';
 @import 'blocks/header';
 @import 'blocks/promo';
 @import 'base/button';
@@ -17,8 +21,13 @@ body {
 @import 'blocks/reserve';
 @import 'blocks/_modal';
 @import 'blocks/_footer';
+@import 'blocks/_carousel';
 @import 'base/_media';
 
 .child {
   display: none;
+}
+
+.elfsight-app-45515f57-6f90-4f87-adb7-cae9651101a3 {
+  background-color: $main-color;
 }

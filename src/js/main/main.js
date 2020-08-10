@@ -1,3 +1,23 @@
+$(document).ready(function () {
+  $('.carousel__inner').slick({
+    speed: 1200,
+    adaptiveHeight: false,
+    infinite: true,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    prevArrow: '<button type="button" class="slick-prev"><img src="../img/icons/left.png"></button>',
+    nextArrow: '<button type="button" class="slick-next"><img src="../img/icons/right.png"></button>',
+    responsive: [
+      {
+        breakpoint: 575,
+        settings: {
+          arrows: false,
+        },
+      },
+    ],
+  });
+});
+
 !(function (e) {
   'function' != typeof e.matches &&
     (e.matches =
@@ -401,7 +421,7 @@ $(document).ready(function () {
   });
 });
 var linkNav = document.querySelectorAll('[href^="#"]'), //выбираем все ссылки к якорю на странице
-  V = 0.1; // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
+  V = 0.9; // скорость, может иметь дробное значение через точку (чем меньше значение - тем больше скорость)
 for (var i = 0; i < linkNav.length; i++) {
   linkNav[i].addEventListener(
     'click',
@@ -431,6 +451,8 @@ for (var i = 0; i < linkNav.length; i++) {
 $('.parent').click(function () {
   $(this).children('.child').slideToggle(300);
 });
+
+$('.single-item').slick();
 
 // модальные: https://medium.com/@dan.postnov/%D0%BC%D0%BE%D0%B4%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5-%D0%BE%D0%BA%D0%BD%D0%B0-%D0%BD%D0%B0-javascript-30-%D1%81%D1%82%D1%80%D0%BE%D0%BA-%D0%BA%D0%BE%D0%B4%D0%B0-dbbb599649f3
 // слайдер https://itchief.ru/examples/lab.php?topic=javascript&file=chiefslider-with-refresh

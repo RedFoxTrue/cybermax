@@ -1,6 +1,7 @@
 .footer {
-  padding: 46px 200px;
+  padding: 46px 200px 46px 200px;
   background-color: #121921;
+  border-top: solid #000000 1px;
 
   &__wrapper {
     justify-content: space-between;
@@ -43,11 +44,8 @@
     align-items: flex-end;
     color: #c4c4c4;
     font-family: 'Source Sans Pro';
-
     font-size: 14px;
-
     font-weight: 600;
-
     letter-spacing: 2.52px;
     color: rgba(196, 196, 196, 0.8);
 
@@ -81,5 +79,15 @@
     // letter-spacing: 2.52px;
     // line-height: 18.43px;
     // color: rgba(196, 196, 196, 0.8);
+  }
+  &__partners {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  &__item {
+    display: block;
+    width: 20%;
+    height: 20%;
   }
 }

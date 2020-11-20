@@ -405,6 +405,15 @@
       margin: 0 auto;
       justify-content: center;
       margin-top: 30px;
+      &__cyber {
+        line-height: 15px;
+      }
+      &__link {
+        &::after {
+          content: '';
+          height: 40px;
+        }
+      }
     }
   }
 }
